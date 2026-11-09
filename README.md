@@ -22,3 +22,7 @@ Add `https://<your app>/mcp` as a custom connector. The skill can be uploaded se
 ---
 
 This repository is published automatically from the Nolliworks source. Changes made here directly are overwritten.
+
+## Licence
+
+Copyright © 2026 Ruris (UK) Ltd. Free to install and use with a Nolliworks account, including for commercial work; not to be redistributed, modified or resold. See [LICENSE](LICENSE).

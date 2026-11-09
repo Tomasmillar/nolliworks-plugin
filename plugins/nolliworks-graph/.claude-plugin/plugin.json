@@ -2,6 +2,15 @@
   "name": "nolliworks-graph",
   "version": "0.1.0",
   "description": "Read and write a Nolliworks practice graph through its remote MCP server, with a skill that says what can be done on the graph and how to go about it.",
-  "author": { "name": "Nolliworks" },
-  "keywords": ["nolliworks", "architecture", "practice-graph", "mcp", "riba"]
+  "author": {
+    "name": "Ruris (UK) Ltd"
+  },
+  "keywords": [
+    "nolliworks",
+    "architecture",
+    "practice-graph",
+    "mcp",
+    "riba"
+  ],
+  "license": "SEE LICENSE IN LICENSE"
 }
