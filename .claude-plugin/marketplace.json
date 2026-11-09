@@ -1,0 +1,16 @@
+{
+  "name": "nolliworks",
+  "owner": {
+    "name": "Nolliworks"
+  },
+  "metadata": {
+    "description": "Claude plugins for Nolliworks, practice management for architects."
+  },
+  "plugins": [
+    {
+      "name": "nolliworks-graph",
+      "source": "./plugins/nolliworks-graph",
+      "description": "The practice graph as tools for Claude: read jobs, trace why, propose to the inbox, write as yourself."
+    }
+  ]
+}
