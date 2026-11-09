@@ -12,5 +12,7 @@
     "mcp",
     "riba"
   ],
-  "license": "SEE LICENSE IN LICENSE"
+  "license": "SEE LICENSE IN LICENSE",
+  "icon": ".claude-plugin/icon.png",
+  "privacyPolicyUrl": "https://github.com/Tomasmillar/nolliworks-plugin/blob/main/plugins/nolliworks-graph/PRIVACY.md"
 }

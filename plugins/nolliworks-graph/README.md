@@ -41,3 +41,7 @@ Add a custom connector with the URL `https://<your app>/mcp`. The skill can be a
 | `stage_status` | Live stage, gate checks and findings |
 | `list_inbox`, `add_source`, `propose`, `confirm_proposal`, `reject_proposal` | The inbox: what a model reads waits there for a person |
 | `create_node`, `update_node`, `create_edge`, `update_edge`, `close_edge`, `delete_node` | Write as you, when you've said so |
+
+## Privacy
+
+See [PRIVACY.md](PRIVACY.md).
