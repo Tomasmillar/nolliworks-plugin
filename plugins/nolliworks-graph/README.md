@@ -44,4 +44,6 @@ Add a custom connector with the URL `https://<your app>/mcp`. The skill can be a
 
 ## Privacy
 
+**Privileged material is your responsibility.** Through this connection Claude can read anything you can, including sources marked privileged or confidential, and send it to your AI provider. Keep such material out of what you ask Claude to read.
+
 See [PRIVACY.md](PRIVACY.md).

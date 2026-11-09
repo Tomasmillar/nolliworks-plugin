@@ -42,6 +42,19 @@ agreement with them. Ruris (UK) Ltd does not control what the provider does with
 it. Before you connect, check that your practice is content for its records to
 be processed by that provider.
 
+## Privileged and confidential material: your responsibility
+
+When Claude reads a job through the connection, it can see everything you can
+see, including the text of sources marked privileged or confidential, and that
+text is then sent to your AI provider.
+
+It is your responsibility, and your practice's, to make sure privileged,
+confidential or otherwise sensitive material is not sent to your AI client. For
+example: do not connect, or do not ask Claude to read, jobs or sources that hold
+such material; or keep that material out of Nolliworks records that you can
+reach through the connection. Ruris (UK) Ltd accepts no responsibility for
+material sent to an AI provider through the connection.
+
 ## What Ruris (UK) Ltd keeps
 
 Nothing extra. Requests through the connection are handled like requests from
