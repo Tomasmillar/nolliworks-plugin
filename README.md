@@ -1,6 +1,6 @@
 # Nolliworks plugins for Claude
 
-Claude plugins for [Nolliworks](https://nolliworks.com), practice management for architects.
+Claude plugins for Nolliworks, practice management for architects.
 
 | Plugin | What it does |
 |---|---|
