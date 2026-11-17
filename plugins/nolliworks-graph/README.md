@@ -40,6 +40,7 @@ Add a custom connector with the URL `https://nolliworks.com/mcp`. The skill can 
 | `why`, `impact` | The reasons behind a node; what rests on it |
 | `stage_status` | Live stage, gate checks and findings |
 | `enquiry_pipeline` | The enquiries funnel: its stages by name, its leads, how long each has waited, and one lead's history |
+| `hold_enquiry` | Put a lead on hold with why, or take it off |
 | `import_enquiries` | Bring leads across with the dates they really had, live or historic, with the stages they went through, their contacts and how they heard (owners and admins) |
 | `move_enquiry` | Move a lead to another stage; closing one takes a reason (lost, declined or cold) and a note |
 | `list_inbox`, `add_source`, `propose`, `confirm_proposal`, `reject_proposal` | The inbox: what a model reads waits there for a person |
