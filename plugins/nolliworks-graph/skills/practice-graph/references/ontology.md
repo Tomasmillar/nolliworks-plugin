@@ -1,12 +1,12 @@
 # The ontology, in brief
 
-The database is the authority. Call `describe_ontology` for the exact props, vocabularies and ends; this page says how the pieces fit, as of ontology 1.3.0.
+The database is the authority. Call `describe_ontology` for the exact props, vocabularies and ends; this page says how the pieces fit, as of ontology 1.4.0.
 
 ## Scope: where a node lives
 
 | Scope | Means | Types |
 |---|---|---|
-| project | Belongs to one job. Create with `project_id`. | Action, Appointment, Assumption, BriefItem, Decision, Deliverable, Duty, Element, Enquiry, Fee, GateSignoff, Outcome, Project, Risk, StageInstance, Strategy, ValueEntry, WorkPackage, and every Source (Correspondence, Document, Drawing, Meeting, Transmittal, Utterance) |
+| project | Belongs to one job. Create with `project_id`. | Action, Appointment, Assumption, BriefItem, Decision, Deliverable, Duty, Element, Enquiry, Fee, GateSignoff, Outcome, PlanningApplication, Project, Risk, StageInstance, Strategy, ValueEntry, WorkPackage, and every Source (Correspondence, Document, Drawing, Meeting, Transmittal, Utterance) |
 | practice | Shared between one practice's jobs, never seen by another practice. Create with `organisation_id`, then tie it to a job with an edge. | Site, Person, Constraint, Buildup |
 | shared | A practice's own row or a platform-wide one (policy, authorities). Practices can't create global rows. | Organisation, Requirement |
 
@@ -14,22 +14,26 @@ Abstract types (you can't create them, but edges use them as shorthand): **Sourc
 
 A project's id is also its Project node's id and the `project_id` every node on it carries.
 
+A **PlanningApplication** is one application to the planning authority: its references, dates, decision and appeal. Its status (preparing, submitted, under consideration, decided, withdrawn) is derived from its dates. Its decision is recorded on the job's Planning page, which files the decision notice and the Outcome with it; prefer that page to writing `decision` yourself. A planning condition is a Constraint of kind `planning_condition`, with `number`, `trigger` and `discharged_on`.
+
 ## The edges that carry the reasoning
 
 | Edge | From → To | Reads as |
 |---|---|---|
 | caused_by | Decision, Strategy, Action, Duty, Document, Element → Decision, Source, Obligation, Assumption, Outcome, Action | "because of". **Needs a source.** |
-| sourced_from | Obligation, Deliverable, Assumption, Strategy, Decision, ValueEntry → Source | "on the evidence of". **Needs a source.** |
+| sourced_from | Obligation, Deliverable, Assumption, Strategy, Decision, ValueEntry, PlanningApplication → Source | "on the evidence of". **Needs a source.** An application's decision comes from its decision notice. |
 | assumes | Decision, Document, Strategy → Assumption | "rests on" |
-| addresses | Decision, Strategy, Deliverable, Document → Obligation | "deals with" |
-| supersedes | new → old, same kind (Decision, Strategy, Assumption, Document, Requirement, Action) | "replaces". At most one each way. |
+| addresses | Decision, Strategy, Deliverable, Document, PlanningApplication → Obligation | "deals with". A discharge of conditions, a section 73 variation or a non-material amendment addresses the planning conditions it deals with. |
+| imposed_by | Constraint of kind planning_condition → PlanningApplication (one) | "was imposed by": the application whose decision, or whose appeal's, imposed the condition |
+| discharged_by | Constraint of kind planning_condition → PlanningApplication (one) | "was discharged by": the discharge of conditions whose granted decision discharged it. Written and taken away by the Planning page with the decision; never write it yourself. |
+| supersedes | new → old, same kind (Decision, Strategy, Assumption, Document, Requirement, Action, PlanningApplication) | "replaces". At most one each way. |
 | depends_on | Action, Deliverable → Action, Deliverable, Decision | "waits on" |
 | blocks | Deliverable, Action, Decision → StageInstance, GateSignoff, Decision, Deliverable | "holds up" |
-| applies_to | Document, Deliverable, Strategy, Fee, Action, Duty, Risk, Correspondence, Meeting, Utterance, Transmittal → Site, Project, WorkPackage, StageInstance, Element, Appointment, Deliverable, BriefItem, Action, Duty, Risk, Enquiry | "about" |
+| applies_to | Document, Deliverable, Strategy, Fee, Action, Duty, Risk, Correspondence, Meeting, Utterance, Transmittal → Site, Project, WorkPackage, StageInstance, Element, Appointment, Deliverable, BriefItem, Action, Duty, Risk, Enquiry, PlanningApplication | "about" |
 | constrained_by | Site, Project, Element → Obligation | "bound by". **Needs a source.** Constraints are read from the Site. |
 | satisfied_by | Deliverable → Document, Transmittal | "received as". **Needs a source.** At most one. |
 | satisfies | Document, Element → Requirement | "meets". **Needs a source.** |
-| resulted_in | Project, Decision, Strategy → Outcome | "led to". **Needs a source.** |
+| resulted_in | Project, Decision, Strategy, PlanningApplication → Outcome | "led to". **Needs a source.** A decision on an application leads to the permission or refusal, from the job as well. |
 
 ## When and where
 
